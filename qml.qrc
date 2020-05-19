@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Images/shield.svg</file>
+        <file>Images/Task Knight logo@2x.png</file>
+        <file>Images/templar.svg</file>
+        <file>StartScreen.qml</file>
+        <file>StartScreenForm.ui.qml</file>
+        <file>PushButton.qml</file>
+        <file>PushButtonForm.ui.qml</file>
+        <file>SignInScreen.qml</file>
+        <file>SignInScreenForm.ui.qml</file>
+        <file>TextInputBox.qml</file>
+        <file>TextInputBoxForm.ui.qml</file>
+        <file>SignUpScreen.qml</file>
+        <file>SignUpScreenForm.ui.qml</file>
+        <file>VerificationCodeScreen.qml</file>
+        <file>VerificationCodeScreenForm.ui.qml</file>
+        <file>TasksScreen.qml</file>
+        <file>TasksScreenForm.ui.qml</file>
+    </qresource>
+</RCC>
