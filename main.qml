@@ -26,10 +26,6 @@ Window {
 		interactive: false
 		currentIndex: 0
 
-		Keys.onDigit9Pressed: {
-			screenDimmed = !screenDimmed
-		}
-
 		Keys.onEscapePressed: {
 			Qt.quit()
 		}
