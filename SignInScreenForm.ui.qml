@@ -13,7 +13,7 @@ Item {
 	property alias forgotPasswordButton: forgotPasswordButton
 
 	signal forgotPasswordClicked
-	signal signInClicked(string email, string password)
+	signal signInClicked
 	signal backClicked
 
 	Rectangle {
@@ -66,7 +66,7 @@ Item {
 
 			TextInputBox {
 				id: emailTextInput
-				text: "johndoe@email.com"
+				text: "root@root.com"
 				Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
 				Layout.maximumHeight: nativeHeight
 				Layout.maximumWidth: nativeWidth
@@ -93,7 +93,7 @@ Item {
 
 			TextInputBox {
 				id: passwordTextInput
-				text: "password"
+				text: "UG6s2eoqA8ffO99b"
 				isPassword: true
 				Layout.maximumHeight: nativeHeight
 				Layout.maximumWidth: nativeWidth

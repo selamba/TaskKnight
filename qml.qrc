@@ -18,5 +18,27 @@
         <file>VerificationCodeScreenForm.ui.qml</file>
         <file>TasksScreen.qml</file>
         <file>TasksScreenForm.ui.qml</file>
+        <file>HalfRoundedRectangle.qml</file>
+        <file>HalfRoundedRectangleForm.ui.qml</file>
+        <file>ProfileSquare.qml</file>
+        <file>ProfileSquareForm.ui.qml</file>
+        <file>NumberWithTextBelow.qml</file>
+        <file>NumberWithTextBelowForm.ui.qml</file>
+        <file>TasksTab.qml</file>
+        <file>TasksTabForm.ui.qml</file>
+        <file>Images/chart_orange.svg</file>
+        <file>Images/chart_white.svg</file>
+        <file>Images/list_orange.svg</file>
+        <file>Images/list_white.svg</file>
+        <file>Images/plus-solid.svg</file>
+        <file>List.qml</file>
+        <file>ListForm.ui.qml</file>
+        <file>Images/times-solid.svg</file>
+        <file>Network.js</file>
+        <file>ListDelegate.qml</file>
+        <file>DetailedTask.qml</file>
+        <file>DetailedTaskForm.ui.qml</file>
+        <file>HalfRounedRectangleUpsideDown.qml</file>
+        <file>HalfRounedRectangleUpsideDownForm.ui.qml</file>
     </qresource>
 </RCC>

@@ -1,9 +1,7 @@
 import QtQuick 2.14
 
 PushButtonForm {
-	cursorShape: Qt.PointingHandCursor
+	mouseArea.onClicked: root.clicked()
 
-	Component.onCompleted: {
-		mouseArea.clicked.connect(clicked)
-	}
+	cursorShape: Qt.PointingHandCursor
 }

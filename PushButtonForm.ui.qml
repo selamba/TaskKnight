@@ -4,6 +4,7 @@ Item {
 	id: root
 	width: nativeWidth
 	height: nativeHeight
+	property alias root: root
 	property alias mouseArea: mouseArea
 
 	property alias cursorShape: mouseArea.cursorShape
@@ -26,7 +27,7 @@ Item {
 		Text {
 			id: writing
 			color: "#ff8705"
-			text: qsTr("Button")
+			text: "Button"
 			font.pointSize: nativePointSize
 			fontSizeMode: Text.HorizontalFit
 			font.bold: true
@@ -52,3 +53,4 @@ Designer {
 	D{i:0;height:101;width:238}
 }
 ##^##*/
+

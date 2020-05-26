@@ -1,12 +1,23 @@
 import QtQuick 2.14
 import QtQuick.Window 2.14
 import QtQuick.Controls 2.14
+import "Network.js" as Network
 
 Window {
+	id: app
 	visible: true
 	minimumWidth: 1664
 	minimumHeight: 936
-	title: qsTr("Hello World")
+	title: qsTr("Task Knight")
+
+	property Item tasksList
+
+	// Networking variables
+	property string accessToken: "N/A"
+	property string confirmationToken: "N/A"
+	property bool isLoggedIn: accessToken !== "N/A"
+	property string userID: "N/A"
+	property string currentLogin: "N/A"
 
 	SwipeView {
 		id: swipeView
@@ -16,8 +27,7 @@ Window {
 		currentIndex: 0
 
 		Keys.onDigit9Pressed: {
-			swipeView.addItem(tasksScreen.createObject(swipeView))
-			swipeView.incrementCurrentIndex()
+			screenDimmed = !screenDimmed
 		}
 
 		Keys.onEscapePressed: {
@@ -47,11 +57,10 @@ Window {
 			id: signInScreen
 			SignInScreen {
 				onForgotPasswordClicked: {
-					console.log("Forgot password")
 				}
 
 				onSignInClicked: {
-					console.log(email, password)
+					Network.login(email, password)
 				}
 
 				onBackClicked: {
@@ -65,8 +74,7 @@ Window {
 			id: signUpScreen
 			SignUpScreen {
 				onCreateClicked: {
-					swipeView.addItem(verificationCodeScreen.createObject(swipeView))
-					swipeView.incrementCurrentIndex()
+					Network.registration(fullName, email, password)
 				}
 
 				onBackClicked: {
@@ -77,10 +85,10 @@ Window {
 		}
 
 		Component {
-			id: verificationCodeScreen
+			id: registrationVerificationScreen
 			VerificationCodeScreen {
 				onSubmitClicked: {
-					console.log(code)
+					Network.registrationConfirm(codeString)
 				}
 			}
 		}
@@ -88,7 +96,10 @@ Window {
 		Component {
 			id: tasksScreen
 			TasksScreen {
-
+				Component.onCompleted: {
+					app.tasksList = root.tasksList
+					Network.listTasks("0", "99")
+				}
 			}
 		}
 	}
@@ -99,6 +110,29 @@ Window {
 		onTriggered: {
 			swipeView.removeItem(swipeView.itemAt(1))
 		}
+	}
+
+	function proceedAfterLogin() {
+		swipeView.addItem(tasksScreen.createObject(swipeView))
+		swipeView.incrementCurrentIndex()
+	}
+
+	function proceedToRegistrationConfirm() {
+		swipeView.addItem(registrationVerificationScreen.createObject(swipeView))
+		swipeView.incrementCurrentIndex()
+	}
+
+	function proceedAfterRegistrationConfirm() {
+		swipeView.addItem(tasksScreen.createObject(swipeView))
+		swipeView.incrementCurrentIndex()
+	}
+
+	function updateAfterTasksChange() {
+		Network.listTasks("0", "99")
+	}
+
+	function flushTasks() {
+		app.tasksList.model.clear()
 	}
 }
 

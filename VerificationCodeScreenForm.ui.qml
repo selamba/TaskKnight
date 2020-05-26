@@ -9,7 +9,7 @@ Item {
 	property alias root: root
 	property alias submitButton: submitButton
 
-	signal submitClicked(int code)
+	signal submitClicked
 
 	Rectangle {
 		id: background
@@ -44,7 +44,7 @@ Item {
 			TextInputBox {
 				id: codeTextInput
 				text: ""
-				isPassword: true
+				isPassword: false
 				Layout.maximumHeight: nativeHeight
 				Layout.maximumWidth: nativeWidth
 				Layout.fillHeight: true

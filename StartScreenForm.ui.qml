@@ -5,6 +5,7 @@ Item {
 	id: root
 	width: 400
 	height: 400
+	property alias root: root
 	property alias signInButton: signInButton
 	property alias signUpButton: signUpButton
 	property alias aboutMouseArea: aboutMouseArea

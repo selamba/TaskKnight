@@ -4,6 +4,7 @@ Item {
 	id: root
 	width: nativeWidth
 	height: nativeHeight
+	property alias root: root
 	property alias echoMode: textInput.echoMode
 	property alias text: textInput.text
 	property alias rectHeight: root.height

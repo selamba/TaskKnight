@@ -1,11 +1,9 @@
 import QtQuick 2.14
 
 StartScreenForm {
-	aboutMouseArea.cursorShape: Qt.PointingHandCursor
+	signInButton.onClicked: root.signInClicked()
+	signUpButton.onClicked: root.signUpClicked()
+	aboutMouseArea.onClicked: root.aboutClicked()
 
-	Component.onCompleted: {
-		signInButton.clicked.connect(signInClicked)
-		signUpButton.clicked.connect(signUpClicked)
-		aboutMouseArea.clicked.connect(aboutClicked)
-	}
+	aboutMouseArea.cursorShape: Qt.PointingHandCursor
 }
