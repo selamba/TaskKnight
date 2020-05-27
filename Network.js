@@ -11,7 +11,7 @@ const url = "http://nonfallable.com:8091/api/" + apiVersion
 
 function getAuth() {
 	// Check if function was called prematurely
-	if (accessToken === "N/A") {
+    if (app.accessToken === "N/A") {
 		console.log("GET auth called prematurely.")
 		return
 	}
@@ -36,7 +36,7 @@ function getAuth() {
 				console.log("Authorization data recieved.")
 
 				app.userID = response.id
-				app.accessToken = response.accessToken
+                app.accessToken = response.accessToken
 				app.currentLogin = response.login
 			} else {
 				console.log("getAuth: Undefined behaviour happened.")
@@ -46,7 +46,7 @@ function getAuth() {
 
 	xhr.open("GET", url + suffix, true)
 	xhr.setRequestHeader("Content-type", "application/json")
-	xhr.setRequestHeader("Authorization", accessToken)
+    xhr.setRequestHeader("Authorization", app.accessToken)
 
 	xhr.send()
 	console.log("Auth request sent.")
@@ -153,7 +153,7 @@ function registration(fullName, email, password) {
 
 function registrationConfirm(code) {
 	// Check if function was called prematurely
-	if (confimrationToken === "N/A") {
+    if (app.confirmationToken === "N/A") {
 		console.log("Registration confirm called prematurely.")
 		return
 	}
@@ -184,9 +184,9 @@ function registrationConfirm(code) {
 		}
 	}
 
-	xhr.open("POST", url + suffix + "/" + confimrationToken, true)
+    xhr.open("POST", url + suffix + "/" + app.confirmationToken, true)
 	xhr.setRequestHeader("Content-type", "application/json")
-	xhr.setRequestHeader("Authorization", accessToken)
+    xhr.setRequestHeader("Authorization", app.accessToken)
 
 	const jsonData = {
 		"code": code
@@ -254,7 +254,7 @@ function listTasks(pageNumber, pageSize) {
 
 	xhr.open("GET", url + suffix + params.arg(pageNumber).arg(pageSize), true)
 	xhr.setRequestHeader("Content-type", "application/json")
-	xhr.setRequestHeader("Authorization", accessToken)
+    xhr.setRequestHeader("Authorization", app.accessToken)
 
 	xhr.send()
 	console.log("List tasks request sent.")
@@ -284,7 +284,7 @@ function getTask(taskId) {
 
 	xhr.open("GET", url + suffix + "/" + taskId, true)
 	xhr.setRequestHeader("Content-type", "application/json")
-	xhr.setRequestHeader("Authorization", accessToken)
+    xhr.setRequestHeader("Authorization", app.accessToken)
 
 	xhr.send()
 	console.log("Get task request sent.")
@@ -316,7 +316,7 @@ function createTask(title, text, imp, urg) {
 
 	xhr.open("POST", url + suffix, true)
 	xhr.setRequestHeader("Content-type", "application/json")
-	xhr.setRequestHeader("Authorization", accessToken)
+    xhr.setRequestHeader("Authorization", app.accessToken)
 
 	const jsonData = {
 		"title": title,
@@ -356,7 +356,7 @@ function updateTask(id, title, text, imp, urg) {
 
 	xhr.open("PUT", url + suffix + "/" + id, true)
 	xhr.setRequestHeader("Content-type", "application/json")
-	xhr.setRequestHeader("Authorization", accessToken)
+    xhr.setRequestHeader("Authorization", app.accessToken)
 
 	const jsonData = {
 		"title": title,
@@ -396,7 +396,7 @@ function deleteTask(id) {
 	console.log(url + suffix + "/" + id)
 	xhr.open("DELETE", url + suffix + "/" + id, true)
 	xhr.setRequestHeader("Content-type", "application/json")
-	xhr.setRequestHeader("Authorization", accessToken)
+    xhr.setRequestHeader("Authorization", app.accessToken)
 
 	xhr.send()
 	console.log("Delete task request sent.")
