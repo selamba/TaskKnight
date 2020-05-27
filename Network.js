@@ -129,7 +129,7 @@ function registration(fullName, email, password) {
 				console.log("Registration approved, awaiting verification code.")
 
 				app.accessToken = response.accessToken
-				app.confimrationToken = response.confirmationToken
+                app.confirmationToken = response.confirmationToken
 
 				app.proceedToRegistrationConfirm()
 			} else {
